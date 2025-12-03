@@ -44,7 +44,7 @@ namespace AdventOfCode.Year2025
             return "" + result;
         }
 
-        public string SolvePart2(string input)
+       public string SolvePart2(string input)
         {
             string[] pairs = input.Split(",");
             long result = 0;
@@ -56,27 +56,28 @@ namespace AdventOfCode.Year2025
                 long max = long.Parse(minmax[1]);
                 int length = minmax[0].Length;
 
-                for (var offset = 0; offset <= length - minmax[1].Length; offset++)
+                for (var i = 1; i <= Math.Max(length / 2, 1); i++)
                 {
-                    for (var i = 1; i <= Math.Max(length / 2, 1); i++)
+                    string current = minmax[0][..i];
+                    int minBound = (int) decimal.Round((decimal) minmax[0].Length / i, MidpointRounding.AwayFromZero);
+                    int maxBound = (int) decimal.Round((decimal) minmax[0].Length / i, MidpointRounding.ToZero);
+                
+                    for (var x = minBound; x <= maxBound; x++)
                     {
-                        string current = minmax[0][..i];
-                        long ID = long.Parse(string.Concat(Enumerable.Repeat(current, length / current.Length);
+                        long ID = long.Parse(string.Concat(Enumerable.Repeat(current,x)));
 
                         while (ID <= max)
                         {
                             if (ID >= min)
                             {
-                                //Console.WriteLine(ID + " is invalid");
+                                //Console.WriteLine(ID + " is invalid");it
                                 result += ID;
                             }
                             current = (int.Parse(current) + 1).ToString();
-                            ID = long.Parse(current + current);
+                            ID = long.Parse(string.Concat(Enumerable.Repeat(current,x)));
                         }
-
-                    }
-                }
-
+                    }                      
+                }            
             }
                 return "" + result;
         }
