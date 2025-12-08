@@ -44,41 +44,53 @@ namespace AdventOfCode.Year2025
             return "" + result;
         }
 
+
         public string SolvePart2(string input)
         {
             string[] pairs = input.Split(",");
             long result = 0;
+
 
             foreach (string P in pairs)
             {
                 string[] minmax = P.Split("-");
                 long min = long.Parse(minmax[0]);
                 long max = long.Parse(minmax[1]);
-                int length = minmax[0].Length;
+                int minLength = minmax[0].Length;
+                int maxLength = minmax[1].Length;
+                List<long> invalids = [];
+                List<int> pairings = []; ;
 
-                for (var offset = 0; offset <= length - minmax[1].Length; offset++)
+                for (var x = 2; x <= maxLength; x++)
                 {
-                    for (var i = 1; i <= Math.Max(length / 2, 1); i++)
+                    if (!pairings.Contains(x) && (minLength % x == 0 || maxLength % x == 0))
                     {
-                        string current = minmax[0][..i];
-                        long ID = long.Parse(string.Concat(Enumerable.Repeat(current, length / current.Length);
-
-                        while (ID <= max)
+                        for (var offset = 0; offset <= maxLength - minLength; offset++)
                         {
-                            if (ID >= min)
-                            {
-                                //Console.WriteLine(ID + " is invalid");
-                                result += ID;
-                            }
-                            current = (int.Parse(current) + 1).ToString();
-                            ID = long.Parse(current + current);
-                        }
+                            int current = (int) Math.Pow(10, (minLength + offset) / x) / 10;
+                            long ID = long.Parse(string.Concat(Enumerable.Repeat(current, x + offset)));
+                            int IDLength = ID.ToString().Length;
 
+                            while (ID <= max)
+                            {
+                                if (ID >= min)
+                                {
+                                    if (!invalids.Contains(ID))
+                                    {
+                                        invalids.Add(ID);
+                                        //Console.WriteLine(ID + " is invalid");
+                                        result += ID;
+                                    }
+                                }
+                                current = current += 1;
+
+                                ID = long.Parse(string.Concat(Enumerable.Repeat(current, x + offset)));
+                            }
+                        }
                     }
                 }
-
             }
-                return "" + result;
+            return "" + result;
         }
 
         public string GetInput()

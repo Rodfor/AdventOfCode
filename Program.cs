@@ -14,7 +14,9 @@ namespace AdventOfCode
         {
             var aoc = new AdventOfCode();
             //aoc.Solve(new Year2025.Day01());
-            aoc.Solve(new Year2025.Day02());
+            //aoc.Solve(new Year2025.Day02());
+            //aoc.Solve(new Year2025.Day03());
+            aoc.Solve(new Year2025.Day04());
         }
         public void Solve(IAoC aoc)
         {
@@ -22,9 +24,10 @@ namespace AdventOfCode
             stopwatch.Start();
             Console.WriteLine($"{aoc.GetType().Namespace}");
             Console.WriteLine($"{aoc.GetType().Name}, part 1: {aoc.SolvePart1(aoc.GetInput())}");
-            Console.WriteLine($"{aoc.GetType().Name}, part 2: {aoc.SolvePart2(aoc.GetInput())}");
-            Console.WriteLine(string.Empty);
             Console.WriteLine($"Execution time was about {stopwatch.ElapsedMilliseconds}ms");
+            Console.WriteLine($"{aoc.GetType().Name}, part 2: {aoc.SolvePart2(aoc.GetInput())}");
+            Console.WriteLine($"Total Execution time was about {stopwatch.ElapsedMilliseconds}ms");
+            Console.WriteLine(string.Empty);
             Console.WriteLine(string.Empty);
             Console.WriteLine(string.Empty);
         }
