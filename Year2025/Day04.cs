@@ -1,4 +1,4 @@
-﻿
+﻿using AdventOfCode.Utilities;
 
 namespace AdventOfCode.Year2025
 {
@@ -57,7 +57,7 @@ namespace AdventOfCode.Year2025
             input = input.Replace('@', '0');
 
             string[] rijen = input.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-            int[,] grid = Utilities.ToIntMatrix(rijen);
+            int[,] grid = Extra.ToIntMatrix(rijen);
 
             int maxI = rijen.Length;
             int maxJ = rijen[0].Length;

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AdventOfCode
+namespace AdventOfCode.Utilities
 {
-    static class Utilities
+    static class Extra
     {
 
         public static int[,] ToIntMatrix(string[] lines)
