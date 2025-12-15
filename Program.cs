@@ -19,7 +19,9 @@ namespace AdventOfCode
             //aoc.Solve(new Year2025.Day04());
             //aoc.Solve(new Year2025.Day05());
             //aoc.Solve(new Year2025.Day06());
-            aoc.Solve(new Year2025.Day07());
+            //aoc.Solve(new Year2025.Day07());
+            //aoc.Solve(new Year2025.Day08());
+            aoc.Solve(new Year2025.Day09());
         }
         public void Solve(IAoC aoc)
         {
